@@ -1,4 +1,4 @@
-RailsPrelaunchSignup::Application.routes.draw do
+Giftique::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
   end

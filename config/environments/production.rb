@@ -1,4 +1,4 @@
-RailsPrelaunchSignup::Application.configure do
+Giftique::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -71,7 +71,7 @@ RailsPrelaunchSignup::Application.configure do
 
     config.action_mailer.smtp_settings = {
       :address   => "smtp.mandrillapp.com",
-      :port      => 25,
+      :port      => ENV["MANDRILL_PORT"],
       :user_name => ENV["MANDRILL_USERNAME"],
       :password  => ENV["MANDRILL_API_KEY"]
     }

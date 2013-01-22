@@ -2,7 +2,7 @@ Given /^I am logged in as an administrator$/ do
   @admin = FactoryGirl.create(:user, email: "admin@example.com")
   @admin.add_role :admin
   @visitor ||= { :email => "admin@example.com",
-    :password => "please", :password_confirmation => "please" }
+    :password => "pleaseplease", :password_confirmation => "pleaseplease" }
   sign_in
 end
 
