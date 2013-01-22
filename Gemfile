@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.11'
-gem 'sqlite3', :group => [:development, :test]
-gem 'pg', :group => :production
+gem 'pg'
+gem 'sqlite3', :group => [:development, :testx]
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
