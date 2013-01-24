@@ -1,1 +1,6 @@
 <h3>Home</h3>
+
+<% Etsy.api_key = ENV["ETSY_API_KEY"] %>
+<% Etsy.api_secret = ENV["ETSY_SHARED_SECRET"] %>
+
+<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => 'http://giftique.herokuapp.com/oauth') %>

@@ -1,6 +1,7 @@
 Giftique::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
+    match '/oauth' => 'oauth#redirect', :as => :oauth_redirect
   end
   devise_scope :user do
     root :to => "devise/registrations#new"
@@ -11,4 +12,5 @@ Giftique::Application.routes.draw do
   resources :users, :only => [:show, :index] do
     get 'invite', :on => :member
   end
+  
 end
