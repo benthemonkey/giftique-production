@@ -3,4 +3,11 @@
 <% Etsy.api_key = ENV["ETSY_API_KEY"] %>
 <% Etsy.api_secret = ENV["ETSY_SHARED_SECRET"] %>
 
-<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => 'http://giftique.herokuapp.com/oauth') %>
+<% if session[:access_token] %>
+	<% @graph = Koala::Facebook::API.new(session[:access_token]) %>
+	<%= education = @graph.get_object("me") { |data| data['education'] } %>
+
+
+<% else %>
+	<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => 'http://giftique.herokuapp.com/oauth') %>
+<% end %>
