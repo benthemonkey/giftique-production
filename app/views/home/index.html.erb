@@ -4,10 +4,15 @@
 <% Etsy.api_secret = ENV["ETSY_SHARED_SECRET"] %>
 
 <% if session[:access_token] %>
+	<%= "Logged in!" %>
 	<% @graph = Koala::Facebook::API.new(session[:access_token]) %>
-	<%= education = @graph.get_object("me") { |data| data['education'] } %>
-
-
+	<% friends = @graph.get_connections("me","friends") %>
+	<% friends.sort! {|x,y| x["name"] <=> y["name"]} %>
+<select>
+	<% friends.each do |f| %>
+	<%= ("<option value=\""+f["id"]+"\">"+f["name"]+"</option>").html_safe %>
+	<% end %>
+</select>
 <% else %>
-	<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => 'http://giftique.herokuapp.com/oauth') %>
+	<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => ENV["FB_CALLBACK_URL"]+'oauth') %>
 <% end %>

@@ -11,6 +11,7 @@ gem 'etsy'
 gem 'koala'
 gem 'thin'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'figaro'
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
