@@ -1,7 +1,7 @@
 Giftique::Application.routes.draw do
   authenticated :user do
     root :to => 'home#index'
-    match '/oauth' => 'oauth#redirect', :as => :oauth_redirect
+    match '/oauth/:code' => 'oauth#redirect', :as => :oauth_redirect
   end
   devise_scope :user do
     root :to => "devise/registrations#new"
