@@ -20,6 +20,7 @@
 
             $.ajax({
                 url: etsyURL,
+                async: false,
                 dataType: "jsonp",
                 success: function(data) {
                     if (data.ok) {
