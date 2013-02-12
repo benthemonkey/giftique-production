@@ -18,6 +18,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
+//= require setup.js
 $('document').ready(function() {
   
   // use AJAX to submit the "request invitation" form

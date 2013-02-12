@@ -1,4 +1,6 @@
 Giftique::Application.configure do
+  # precompile all js
+  config.assets.precompile += %w( *.js )
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
