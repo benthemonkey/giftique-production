@@ -1,6 +1,8 @@
 Giftique::Application.configure do
   # precompile all js
   config.assets.precompile += %w( *.js )
+  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.storage.googleapis.com"
+  config.assets.enable = true
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
