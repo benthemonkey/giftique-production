@@ -4,12 +4,12 @@
 	<% Etsy.api_key = ENV["ETSY_API_KEY"] %>
 	<% Etsy.api_secret = ENV["ETSY_SHARED_SECRET"] %>
 
-	<% session[:access_token] = "AAAB042ZCpn9EBAJHjzuEo1AmfEUu0I0pYaChAlhhvZBFEIGqTczWC0gNexa4Y9KpkyYCJ3n6ZCV0AjELGQjTdsgdMXfypqAvPbbADJLpgZDZD" %>
+	<% #session[:access_token] = "AAAB042ZCpn9EBAJHjzuEo1AmfEUu0I0pYaChAlhhvZBFEIGqTczWC0gNexa4Y9KpkyYCJ3n6ZCV0AjELGQjTdsgdMXfypqAvPbbADJLpgZDZD" %>
 
 	<% #if params[:signed_request] %>
 		<% #session[:access_token] = oauth.parse_signed_request(params[:signed_request])["oauth_token"] %>
 	<% #end %>
-	<% if session[:access_token] %>
+<!-- 	<% if session[:access_token] %>
 		<%= "Logged in!" %>
 		<% @graph = Koala::Facebook::API.new(session[:access_token]) %>
 		<% friends = @graph.get_connections("me","friends") %>
@@ -21,5 +21,5 @@
 	</select>
 	<% else %>
 		<%= link_to 'Login', Koala::Facebook::OAuth.new.url_for_oauth_code(:callback => ENV["FB_CALLBACK_URL"]+'oauth') %>
-	<% end %>
+	<% end %> -->
 </div>
