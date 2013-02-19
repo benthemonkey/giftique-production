@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 	// Setting up homepage carousel
 	$home_carousel.carousel({
-		interval: false 
+		interval: true 
 	})
 
 	// animate first caption on website load

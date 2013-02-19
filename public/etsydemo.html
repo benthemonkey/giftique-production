@@ -6,6 +6,8 @@
 (function($){
 
     $(document).ready(function(){
+        $('#ebay-search')
+
         $('#etsy-search').bind('click', function() {
             api_key = "muf6785p5zsu3iwp28e51kgi";
             terms = $('#etsy-terms').val();
@@ -52,11 +54,27 @@
 </head>
 <body>
     <form>
-        <!--<select name="occasion" id="etsy-terms">
-            <option value="">Select an occasion</option>
+        <p>You're creating an 
+        <select name="occasion" id="gift-occasion">
+            <option value="null">occasion</option>
             <option value="Anniversary">Anniversary</option>
-            <option value="Birthday">Birthday</option>
-        </select>-->
+            <option value="Valentines Day">Valentines Day</option>
+            <option value="Just Because">just because</option> 
+        </select> gift for your wonderful 
+        <select name="relationship" id="gift-relationship">
+            <option value="null">relationship</option>
+            <option value="Girlfriend">girlfriend</option>
+            <option value="Wife">wife</option>
+            <option value="Friend">friend</option>
+        </select>, 
+        <input type="text" id="gift-name"> and looking for gifts in the 
+        <select name="pricerange" id="gift-price-range">
+            <option value="null">price range</option>
+            <option value="$5-$10">$5-$10</option>
+            <option value="$10-$30">$10-$30</option>
+            <option value="$30-$50">$30-$50</option>
+            <option value="$50+">$50+</option>
+        </select> range.</p>
         <input type="text" id="etsy-terms">
         Results: 
         <select name="results" id="etsy-results">

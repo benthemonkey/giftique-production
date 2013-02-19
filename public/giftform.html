@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+        <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var giftiqueuser;
+                if (localStorage.giftiqueuser){
+                    giftiqueuser = localStorage.giftiqueuser;
+                }
+                $slider = $('.giftique-slider-frame');
+                $slide = $('.giftique-slider');
+                $active_slide = 0;
+                $slide_width = "850px";
+                $easing = "easeOutCubic";
+                $transition_speed = 400;//"slow";
+                
+                function slides(){
+                    return $slider.find($slide);
+                }
+                
+                function buttons(){
+                    return $('.giftique-slider-links').find('.slidelink');
+                }
+                
+                slides().first().addClass('active');
+                slides().first().css({"left": "0px"})
+                slides().first().show();
+                
+                function changeto(ind){
+                    if (ind == $active_slide){
+                        slides().eq(ind).effect("shake");
+                    } else {
+                        slides().eq($active_slide).removeClass('active');
+                        buttons().eq($active_slide).removeClass('active');
+                        slides().eq(ind).addClass('active');
+                        buttons().eq(ind).addClass('active');
+                        slides().eq(ind).show();
+                        
+                        slides().eq($active_slide).animate({"left": ($active_slide < ind ? "-=" : "+=")+$slide_width},
+                                                           {duration: $transition_speed, complete: function($active_slide){slides().eq($active_slide).hide();}, easing: $easing});
+                        slides().eq(ind).css({"left": ($active_slide < ind ? "" : "-")+$slide_width});
+                        slides().eq(ind).animate({"left": ($active_slide < ind ? "-=" : "+=")+$slide_width},
+                                                 {duration: $transition_speed, easing: $easing });
+                        
+                        $active_slide = ind;
+                    }
+                }
+                
+                $('#gotoslide0').bind('click',function (){changeto(0)});
+                $('#gotoslide1').bind('click',function (){changeto(1)});
+                $('#gotoslide2').bind('click',function (){changeto(2)});
+                $('#gotoslide3').bind('click',function (){changeto(3)});
+                $('#gotoslide4').bind('click',function (){changeto(4)});
+            });
+        </script>
+        <style type="text/css">
+            .slidelink {
+                margin: 10px 18px;
+                position: relative;
+                left: 0px;
+                padding: 10px;
+                width: 120px;
+                -moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+                -webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+                box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+                background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+                background-color:#79bbff;
+                -moz-border-radius:6px;
+                -webkit-border-radius:6px;
+                border-radius:6px;
+                border:1px solid #84bbf3;
+                display:inline-block;
+                color:#ffffff;
+                font-weight:bold;
+                text-decoration:none;
+                text-shadow:1px 1px 0px #528ecc;
+            }.slidelink:hover {
+                background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #378de5), color-stop(1, #79bbff) );
+                background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
+                filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
+                background-color:#378de5;
+            }.slidelink .active {
+                margin-top: 20px;
+            }
+            }
+            
+            .giftique-container {
+                height: 250px;
+                width: 800px;
+                background-color: #f0f0f0;
+            }
+            
+            .giftique-slider-links {
+                height: 50px;
+                width: 800px;
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8));
+            }
+            
+            .giftique-slider-frame {
+                position: absolute;
+                height: 200px;
+                width: 800px;
+                overflow: hidden;
+            }
+            
+            .giftique-slider {
+                display: none;
+                position: absolute;
+                height: 200px;
+                width: 800px;
+                left: 800px;
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,249,255,1)), color-stop(47%,rgba(203,235,255,1)), color-stop(100%,rgba(161,219,255,1)));
+            }
+            
+            .giftique-slider p{
+                padding: 5px 20px;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <div class="giftique-container">
+            <div class="giftique-slider-links">
+                <button id="gotoslide0" class="slidelink active">Basic</button>
+                <button id="gotoslide1" class="slidelink">Travel</button>
+                <button id="gotoslide2" class="slidelink">Food/Drink</button>
+                <button id="gotoslide3" class="slidelink">Hobbies</button>
+                <button id="gotoslide4" class="slidelink">Activities</button>
+            </div>
+            <div class="giftique-slider-frame">
+                <form>
+                    <div class="giftique-slider">
+                        <p>You are creating a(n) 
+                            <select name="occasion" id="gift-occasion">
+                                <option value="null">occasion</option>
+                                <option value="Anniversary">Anniversary</option>
+                                <option value="Valentines Day">Valentines Day</option>
+                                <option value="Just Because">just because</option> 
+                            </select> gift for your wonderful 
+                            <select name="relationship" id="gift-relationship">
+                                <option value="null">relationship</option>
+                                <option value="Girlfriend">girlfriend</option>
+                                <option value="Wife">wife</option>
+                                <option value="Friend">friend</option>
+                            </select>, 
+                            <input type="text" id="gift-name"> and looking for gifts in the 
+                            <select name="pricerange" id="gift-price-range">
+                                <option value="null">price range</option>
+                                <option value="5-10">$5-$10</option>
+                                <option value="10-30">$10-$30</option>
+                                <option value="30-50">$30-$50</option>
+                                <option value="50-99999">$50+</option>
+                            </select> range.</p>
+                    </div>
+                    <div class="giftique-slider">
+                        <p>Select a blank to fill in.<br>
+                            <input type="radio" name="travelquestion" value="t1">[Name] and I dream to travel to __________ in the future.<br>
+                            <input type="radio" name="travelquestion" value="t2">[Name] and I had the best time traveling to __________.<br>
+                            <input type="radio" name="travelquestion" value="t3">We travel _________ regularly, our special home away from home.<br>
+                            <br>
+                            <input type="text" id="location">
+                        </p>
+                    </div>
+                    <div class="giftique-slider">
+                        <p>Select a blank to fill in.<br>
+                            <input type="radio" name="fooddrinkquestion" value="f1">For dinner we prefer _____________.<br>
+                            <input type="radio" name="fooddrinkquestion" value="f2">Our drink of choice is __________.<br>
+                            <input type="radio" name="fooddrinkquestion" value="f3">[Name]'s drink of choice is ___________.<br>
+                            <br>
+                            <input type="text" id="fooddrink">
+                        </p>
+                    </div>
+                    <div class="giftique-slider">
+                        <p>Select a blank to fill in.<br>
+                            <input type="radio" name="activityquestion" value="a1">_____________ is  an activity we'd love to try together.<br>
+                            <input type="radio" name="activityquestion" value="a2">We love doing ___________ together every couple of weeks.<br>
+                            <input type="radio" name="activityquestion" value="a3">When we are feeling adventurous we ______________.<br>
+                            <br>
+                            <input type="text" id="activity">
+                        </p>
+                    </div>
+                    <div class="giftique-slider">
+                        <p>Select a blank to fill in.<br>
+                            <input type="radio" name="hobbyquestion" value="h1">After a long week we spend time with each other by ______________.<br>
+                            <input type="radio" name="hobbyquestion" value="h2">Our typical Saturday consists of ______________.<br>
+                            <input type="radio" name="hobbyquestion" value="h3">If there was a blizzard outside and we were stuck in our house we would _____________.<br>
+                            <br>
+                            <input type="text" id="hobby">
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -44,7 +44,7 @@ $('document').ready(function() {
 })
 
 // load social sharing scripts if the page includes a Twitter "share" button
-function loadSocial() {
+/*function loadSocial() {
     
     //Twitter
     if (typeof (twttr) != 'undefined') {
@@ -70,4 +70,4 @@ function loadSocial() {
     } else {
       $.getScript('https://apis.google.com/js/plusone.js');
     }
-}
+}*/
