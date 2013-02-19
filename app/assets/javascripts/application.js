@@ -19,7 +19,7 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
 //= require setup.js
-$('document').ready(function() {
+/*$('document').ready(function() {
   
   // use AJAX to submit the "request invitation" form
   $('#invitation_button').live('click', function() {
@@ -44,7 +44,7 @@ $('document').ready(function() {
 })
 
 // load social sharing scripts if the page includes a Twitter "share" button
-/*function loadSocial() {
+function loadSocial() {
     
     //Twitter
     if (typeof (twttr) != 'undefined') {

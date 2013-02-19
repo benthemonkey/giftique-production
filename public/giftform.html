@@ -24,7 +24,7 @@
                 }
                 
                 slides().first().addClass('active');
-                slides().first().css({"left": "0px"})
+                slides().first().css({"left": "0px"});
                 slides().first().show();
                 
                 function changeto(ind){
@@ -32,9 +32,9 @@
                         slides().eq(ind).effect("shake");
                     } else {
                         slides().eq($active_slide).removeClass('active');
-                        buttons().eq($active_slide).removeClass('active');
+                        buttons().eq($active_slide).removeClass('current');
                         slides().eq(ind).addClass('active');
-                        buttons().eq(ind).addClass('active');
+                        buttons().eq(ind).addClass('current');
                         slides().eq(ind).show();
                         
                         slides().eq($active_slide).animate({"left": ($active_slide < ind ? "-=" : "+=")+$slide_width},
@@ -82,9 +82,10 @@
                 background:-moz-linear-gradient( center top, #378de5 5%, #79bbff 100% );
                 filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff');
                 background-color:#378de5;
-            }.slidelink .active {
-                margin-top: 20px;
             }
+            
+            .slidelink.current{
+                top: 10px;
             }
             
             .giftique-container {
@@ -96,7 +97,14 @@
             .giftique-slider-links {
                 height: 50px;
                 width: 800px;
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#1e5799), color-stop(50%,#2989d8), color-stop(51%,#207cca), color-stop(100%,#7db9e8));
+                background: rgb(30,87,153); /* Old browsers */
+                background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 50%, rgba(32,124,202,1) 51%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(50%,rgba(41,137,216,1)), color-stop(51%,rgba(32,124,202,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* IE10+ */
+                background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 50%,rgba(32,124,202,1) 51%,rgba(125,185,232,1) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
             }
             
             .giftique-slider-frame {
@@ -112,7 +120,14 @@
                 height: 200px;
                 width: 800px;
                 left: 800px;
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,249,255,1)), color-stop(47%,rgba(203,235,255,1)), color-stop(100%,rgba(161,219,255,1)));
+                background: rgb(240,249,255); /* Old browsers */
+                background: -moz-linear-gradient(top, rgba(240,249,255,1) 0%, rgba(203,235,255,1) 47%, rgba(161,219,255,1) 100%); /* FF3.6+ */
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,249,255,1)), color-stop(47%,rgba(203,235,255,1)), color-stop(100%,rgba(161,219,255,1))); /* Chrome,Safari4+ */
+                background: -webkit-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* Chrome10+,Safari5.1+ */
+                background: -o-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* Opera 11.10+ */
+                background: -ms-linear-gradient(top, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* IE10+ */
+                background: linear-gradient(to bottom, rgba(240,249,255,1) 0%,rgba(203,235,255,1) 47%,rgba(161,219,255,1) 100%); /* W3C */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
             }
             
             .giftique-slider p{
@@ -125,7 +140,7 @@
     <body>
         <div class="giftique-container">
             <div class="giftique-slider-links">
-                <button id="gotoslide0" class="slidelink active">Basic</button>
+                <button id="gotoslide0" class="slidelink current">Basic</button>
                 <button id="gotoslide1" class="slidelink">Travel</button>
                 <button id="gotoslide2" class="slidelink">Food/Drink</button>
                 <button id="gotoslide3" class="slidelink">Hobbies</button>
