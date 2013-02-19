@@ -72,7 +72,7 @@ $(function() {
 
     // finally, call quicksand
     $applications.quicksand($filteredData, {
-      duration: 800,
+      duration: 2000,
       easing: 'easeInOutQuad'
     });
 
