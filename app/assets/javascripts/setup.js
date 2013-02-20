@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 
 	// Setting up homepage carousel
 	$home_carousel.carousel({
-		interval: true 
+		interval: 8000 
 	})
 
 	// animate first caption on website load
@@ -72,7 +72,7 @@ $(function() {
 
     // finally, call quicksand
     $applications.quicksand($filteredData, {
-      duration: 2000,
+      duration: 800,
       easing: 'easeInOutQuad'
     });
 
