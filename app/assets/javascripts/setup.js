@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	/* ########## */
 
 	// Setting variables
-	$home_carousel = $('#myCarousel');
+	$home_carousel = $('#landingCarousel');
 
 	// Setting up homepage carousel
 	$home_carousel.carousel({
