@@ -19,8 +19,7 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
 //= require setup.js
-/*$('document').ready(function() {
-  
+$('document').ready(function() {
   // use AJAX to submit the "request invitation" form
   $('#invitation_button').live('click', function() {
     var email = $('form #user_email').val();
@@ -70,4 +69,4 @@ function loadSocial() {
     } else {
       $.getScript('https://apis.google.com/js/plusone.js');
     }
-}*/
+}

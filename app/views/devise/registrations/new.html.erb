@@ -12,6 +12,8 @@
   <div class="modal-footer">
     <%= f.submit "Request Invitation", :class => "btn btn-primary", :id => 'invitation_button' %>
     <a class="btn" data-dismiss="modal" href="#">Close</a>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.giftique.tk">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   </div>
   <% end %>
 </div>
@@ -50,20 +52,6 @@
       </div>
 
     </div>
-<!--<div class="row">
-  <div class="span6">
-    <div>
-      <img id="logo" src="<%= asset_path "giftiquelogo.gif" %>" style="width:500px; margin-top: 10px" />
-      <h3>
-        Delivering gift recommendations that strengthen relationships, Giftique uses social data to build a narrative between you and your gift recipient  to create unique and thoughtful gifting experiences.
-      </h3>
-    </div>
-  </div>
-  <div class="span6" id="romance-copy" style="text-align: center; margin-top: 10px">
-    <iframe src="http://prezi.com/embed/lz6ftz8f05d0/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=yes&amp;autohide_ctrls=1" width="550" height="400" frameBorder="0"></iframe>
-  </div>
-</div>-->
-
 <div id="call-to-action" style="text-align: center; margin-top: 30px; margin-bottom: 10px">
   <a class="btn btn-primary btn-large" data-toggle="modal" href="#request-invite">Request invite</a>
 </div>
