@@ -16,50 +16,25 @@ $('document').ready ->
   slides = ->
     $slider.find $slide
   buttons = ->
-    $(".giftique-slider-links").find ".slidelink"
+    $(".slidelinks").find ".slidelink"
   if localStorage.giftiquedata
     for id of giftiqueform.data
       if localStorage[id]
         giftiqueform.data[id] = localStorage[id]
         $("#" + id).val localStorage[id]
-  $slider = $(".giftique-slider-frame")
-  $slide = $(".giftique-slider")
+  $slider = $("#giftiqueform")
+  $slide = $(".item")
   $active_slide = 0
   $slide_width = "850px"
-  $easing = "easeOutCubic"
-  $transition_speed = 400
-  slides().first().addClass "active"
-  slides().first().css left: "0px"
-  slides().first().show()
   giftiqueform.changeto = (ind) ->
     if ind is $active_slide
       slides().eq(ind).effect "shake"
     else
       ind = $active_slide + 1  unless ind? #allows changeto() to increment slide
       ind = $active_slide - 1  if ind is -1 #allows changeto(-1) to decrement slide
-      slides().eq($active_slide).removeClass "active"
-      buttons().eq($active_slide).removeClass "current"
-      slides().eq(ind).addClass "active"
-      buttons().eq(ind).addClass "current"
-      slides().eq(ind).show()
-      slides().eq($active_slide).animate
-        left: ((if $active_slide < ind then "-=" else "+=")) + $slide_width
-      ,
-        duration: $transition_speed
-        complete: ($active_slide) ->
-          slides().eq($active_slide).hide()
-
-        easing: $easing
-
-      slides().eq(ind).css left: ((if $active_slide < ind then "" else "-")) + $slide_width
-      slides().eq(ind).animate
-        left: ((if $active_slide < ind then "-=" else "+=")) + $slide_width
-      ,
-        duration: $transition_speed
-        easing: $easing
-
-      $active_slide = ind
-
+      buttons().eq($active_slide).removeClass "btn-inverse"
+      buttons().eq(ind).addClass "btn-inverse"
+      $active_slide = ind;
   
   #process form changes on continue
   giftiqueform.cont = ->
