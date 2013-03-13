@@ -17,6 +17,8 @@ $('document').ready ->
     $slider.find $slide
   buttons = ->
     $(".slidelinks").find ".slidelink"
+  phonebuttons = ->
+    $(".phoneslidelinks").find ".phoneslidelink"
   if localStorage.giftiquedata
     for id of giftiqueform.data
       if localStorage[id]
@@ -34,6 +36,8 @@ $('document').ready ->
       ind = $active_slide - 1  if ind is -1 #allows changeto(-1) to decrement slide
       buttons().eq($active_slide).removeClass "btn-inverse"
       buttons().eq(ind).addClass "btn-inverse"
+      phonebuttons().eq($active_slide).removeClass "disabled"
+      phonebuttons().eq(ind).addClass "disabled"
       $active_slide = ind;
   
   #process form changes on continue
