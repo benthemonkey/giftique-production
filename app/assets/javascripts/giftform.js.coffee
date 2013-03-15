@@ -10,15 +10,9 @@ giftiqueform = data:
   pricerange: "0-9999"
 
 $('document').ready ->
-  
-  #Try to load previously entered info
-  #"slow";
   slides = ->
     $slider.find $slide
-  buttons = ->
-    $(".slidelinks").find ".slidelink"
-  phonebuttons = ->
-    $(".phoneslidelinks").find ".phoneslidelink"
+  #Try to load previously entered info
   if localStorage.giftiquedata
     for id of giftiqueform.data
       if localStorage[id]
@@ -27,32 +21,32 @@ $('document').ready ->
   $slider = $("#giftiqueform")
   $slide = $(".item")
   $active_slide = 0
-  $slide_width = "850px"
-  giftiqueform.changeto = (ind) ->
-    if ind is $active_slide
-      slides().eq(ind).effect "shake"
+
+  $slider.bind "slid", ->
+    $active_slide = slides().index $slider.find $(".item.active")
+    if $active_slide is 0
+      $("#form-back").addClass "disabled"
+      $("#form-back").removeAttr "data-slide"
     else
-      ind = $active_slide + 1  unless ind? #allows changeto() to increment slide
-      ind = $active_slide - 1  if ind is -1 #allows changeto(-1) to decrement slide
-      buttons().eq($active_slide).removeClass "btn-inverse"
-      buttons().eq(ind).addClass "btn-inverse"
-      phonebuttons().eq($active_slide).removeClass "disabled"
-      phonebuttons().eq(ind).addClass "disabled"
-      $active_slide = ind;
+      $("#form-back").removeClass "disabled"
+      $("#form-back").attr "data-slide", "prev"
+    if $active_slide is 4
+      $("#form-cont").removeAttr "data-slide"
+      $("#form-cont").html "Finish!"
+    else
+      $("#form-cont").attr "data-slide", "next"
+      $("#form-cont").html "Continue"
   
   #process form changes on continue
   giftiqueform.cont = ->
     giftiqueform.getinput()
-    giftiqueform.changeto()
-
-  
+    giftiqueform.finish()  if $active_slide is 4
+      
   #process form changes on back
   giftiqueform.back = ->
     giftiqueform.getinput()
-    giftiqueform.changeto -1
 
   giftiqueform.finish = ->
-    giftiqueform.getinput()
     ajax_list = Array()
     ids = ["location", "fooddrink", "activity", "hobby"]
     i = 0
@@ -78,7 +72,7 @@ $('document').ready ->
     $(".put-name").html giftiqueform.data.recipient
 
   giftiqueform.hideresults = (name) ->
-    $("#" + name + "-results").slideUp()
+    $(name).fadeOut()
 
   giftiqueform.etsysearch = (ajax_list) ->
     api_key = "muf6785p5zsu3iwp28e51kgi"
@@ -90,26 +84,26 @@ $('document').ready ->
       etsyURL += "&min_price=" + p[0] + "&max_price=" + p[1]
     etsyURL += "&occasion=" + giftiqueform.data.occasion  if giftiqueform.data.occasion
     
-    #&recipient=women
     etsyURL += "&limit=5&includes=Images:1&sort_on=score&api_key=" + api_key
     $("#" + write_to + "-results").empty()
-    $("<p></p>").text("Searching for " + terms).appendTo "#" + write_to + "-results"
+    $("<img/>").attr("src","loading.gif").appendTo "#" + write_to + "-results"
     $.ajax
       url: etsyURL
-      async: false
+      async: true
       dataType: "jsonp"
       success: (data) ->
         if data.ok
           $("#" + write_to + "-results").empty()
           if data.count > 0
-            $("<p>Based on your interest in " + terms + " (<button type=\"button\" onclick=\"giftiqueform.hideresults('" + write_to + "')\">Irrelevant?</button>):</p>").appendTo "#" + write_to + "-results"
+            $("<p>Based on your interest in " + terms + ":</p>").appendTo "#" + write_to + "-results"
             data.results.sort (a, b) ->
               (if a.views < b.views then 1 else -1)
 
             $.each data.results, (i, item) ->
-              $("<div class=\"giftitem\" id=\"" + write_to + i + "\"><p style=\"display:inline;float:left\">Views: " + item.views + "</p><p style=\"display:inline;float:right\">$" + item.price + "</p></div>").appendTo "#" + write_to + "-results"
-              $("<img/>").attr("src", item.Images[0].url_170x135, "alt", item.title).appendTo("#" + write_to + i).wrap "<a href='" + item.url + "'></a>"
+              $('<div class="giftitem" id="' + write_to + i + '\"><p class="pull-left">&nbsp;Views: ' + item.views + '</p><p class="pull-right">$' + item.price + "&nbsp;</p></div>").appendTo "#" + write_to + "-results"
+              $("<a></a>").addClass("btn product_thumb").attr("onclick","giftiqueform.hideresults(" + write_to + i + ")").append('<i class="icon-thumbs-down"></i>').appendTo "#" + write_to + i
               $("<img/>").attr("src", "etsy.png", "alt", "From Etsy.com").addClass("product_source").appendTo "#" + write_to + i
+              $("<img/>").attr("src", item.Images[0].url_170x135, "alt", item.title).appendTo("#" + write_to + i).wrap "<a href='" + item.url + "'></a>"
 
           else
             $("<p>No results.</p>").appendTo "#" + write_to + "-results"
@@ -118,7 +112,6 @@ $('document').ready ->
           $("#" + write_to + "-results").empty()
           alert data.error
 
-    false
   return giftiqueform
 root = exports ? this
 root.giftiqueform = giftiqueform
