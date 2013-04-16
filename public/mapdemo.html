@@ -6,6 +6,7 @@
         <script src="jquery-jvectormap-world-mill-en.js"></script>
         <script src="gdp-data.js"></script>
         <link rel="stylesheet" href="jquery-jvectormap-1.2.2.css" />
+        <link rel="stylesheet" href="bootstrap.min.css" />
         <style type="text/css">
         .put-name{display: inline;}
 
@@ -89,11 +90,15 @@
                                     
                                     data.results.sort(function(a,b){return a.views < b.views ? 1 : -1;});
                                     $.each(data.results, function(i,item) {
-                                        $('<div class="item" id="'+write_to+i+'"><p style="display:inline;float:left">Views: '+item.views+'</p><p style="display:inline;float:right">$'+item.price+'</p></div>').appendTo('#'+write_to+'-results');
-                                        $("<img/>").attr("src", item.Images[0].url_170x135,"alt",item.title).appendTo('#'+write_to+i).wrap(
-                                            "<a href='" + item.url + "'></a>"
-                                        );
-                                        $("<img/>").attr("src","etsy.png","alt","From Etsy.com").addClass("product_source").appendTo('#'+write_to+i);
+                                       
+$('<div class="giftitem" id="' + write_to + i + '\"><p class="pull-left">&nbsp;Views: ' + item.views + '</p><p class="pull-right">$' + item.price + "&nbsp;</p></div>").appendTo("#" + write_to + "-results");
+
+$("<a></a>").addClass("btn product_thumb").attr("onclick", "giftiqueform.hideresults(" + write_to + i + ")").append('<i class="icon-thumbs-down"></i>').appendTo("#" + write_to + i);
+
+$("<img/>").attr("src", "etsy.png", "alt", "From Etsy.com").addClass("product_source").appendTo("#" + write_to + i);
+
+$("<img/>").attr("src", item.Images[0].url_170x135, "alt", item.title).appendTo("#" + write_to + i).wrap("<a href='" + item.url + "'></a>");
+
                                     });
                                 } else {
                                     $('<p>No results.</p>').appendTo('#'+write_to+'-results');
@@ -114,12 +119,16 @@
         </script>
     </head>
     <body>
-        <div class="giftique-container" >
-            <div class="demo-map" style="width: 50%; margin: 0px auto; height: 300px"></div>
-        </div>
-        <div id="l1-results"></div>
-        <div id="l2-results"></div>
-        <div id="l3-results"></div>
-        <div id="l4-results"></div>
+            <div class="giftique-container" >
+                <div class="demo-map" style="width: 50%; margin: 0px auto; height: 300px"></div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <div id="l1-results"></div>
+                    <div id="l2-results"></div>
+                    <div id="l3-results"></div>
+                    <div id="l4-results"></div>
+                </div>
+            </div>
     </body>
 </html>
