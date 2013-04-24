@@ -79,9 +79,12 @@
                     $('<p></p>').text('Searching for '+terms).appendTo('#'+write_to+'-results');
         
                     $.ajax({
+                        type: "GET",
                         url: etsyURL,
                         async: false,
+                        data: "",
                         dataType: "jsonp",
+                        contentType: "application/json; charset=utf-8",
                         success: function(data) {
                             if (data.ok) {
                                 $('#'+write_to+'-results').empty();
@@ -92,8 +95,6 @@
                                     $.each(data.results, function(i,item) {
                                        
 $('<div class="giftitem" id="' + write_to + i + '\"><p class="pull-left">&nbsp;Views: ' + item.views + '</p><p class="pull-right">$' + item.price + "&nbsp;</p></div>").appendTo("#" + write_to + "-results");
-
-$("<a></a>").addClass("btn product_thumb").attr("onclick", "giftiqueform.hideresults(" + write_to + i + ")").append('<i class="icon-thumbs-down"></i>').appendTo("#" + write_to + i);
 
 $("<img/>").attr("src", "etsy.png", "alt", "From Etsy.com").addClass("product_source").appendTo("#" + write_to + i);
 
@@ -111,7 +112,8 @@ $("<img/>").attr("src", item.Images[0].url_170x135, "alt", item.title).appendTo(
                                 $('#'+write_to+'-results').empty();
                                 alert(data.error);
                             }
-                        }
+                        },
+                        error: function(result){console.log(result);}
                     });
         
                     return false;

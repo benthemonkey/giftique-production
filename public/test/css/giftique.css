@@ -1,0 +1,17 @@
+body{
+	background: url('../img/flowers_brooklyn_blur.jpg') no-repeat; /*flowers_brooklyn_blur*/
+	background-size: cover;
+}
+
+.hero-unit{
+	margin-top: 20px;
+	background-color: rgba(238,238,238,.8);
+}
+
+#map{
+	width: 80%; 
+	margin: 0 auto;
+	height: 350px;
+	border: 1px solid black;
+	border-radius: 5px;
+}
