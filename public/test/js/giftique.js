@@ -36,6 +36,10 @@ var giftique = (function($){
 		var map = $('#map').vectorMap('get','mapObject');
 	};
 
+	var textModule = function(){
+		
+	}
+
 	return {init: init};
 })(jQuery);
 
