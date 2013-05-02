@@ -1,11 +1,40 @@
 body{
-	background: url('../img/flowers_brooklyn_blur.jpg') no-repeat; 
-	background-size: cover;
+	background: url('../img/flowers_brooklyn_blur.jpg') no-repeat; /*flowers_brooklyn_blur*/
+	background-size: 1800px;
 }
+
+.container{
+	background-color: white;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+     -webkit-box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
+        -moz-box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
+             box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
+}
+
+.row{
+	margin-left: -10px;
+	margin-right: -10px;
+}
+
+.list{
+	min-height: 50px;
+}
+
+#main{
+	min-height: 400px;
+}
+
 .hero-unit{
 	margin-top: 20px;
 	background-color: rgba(255,255,255,.9);
 }
+
+.well{
+	margin-bottom: 0;
+}
+
 #map{
 	width: 80%; 
 	margin: 0 auto;
@@ -13,9 +42,11 @@ body{
 	border: 1px solid black;
 	border-radius: 5px;
 }
+
 .blank{
 	height: 14px;
 }
+
 .module-nav{
 	width: 40px;
 	margin-left: -13%;

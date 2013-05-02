@@ -2,15 +2,63 @@
 <html lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel="stylesheet" href="css/bootstrap.css" />
-	<link rel="stylesheet" href="css/bootstrap-responsive.css" />
-	<link rel="stylesheet" href="css/jquery-jvectormap-1.2.2.css" />
+	<title>Giftique.me</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<!--<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="css/jquery-jvectormap-1.2.2.css" />-->
 	<link rel="stylesheet" href="css/giftique.css" />
-	<script data-main="js/main" src="js/libs/require-jquery.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div id="page"></div>
+	<div class="container">
+		<div class="navbar">
+		  <div class="navbar-inner">
+			<a class="brand" href="#"><img src="giftiquemelogo.gif" style="height: 40px;"/></a>
+			<!--<ul class="nav">
+			  <li class="active"><a href="#">Home</a></li>
+			  <li><a href="#">Link</a></li>
+			  <li><a href="#">Link</a></li>
+			</ul>-->
+		  </div>
+		</div>
+		<div class="row">
+			<div class="span2" id="nav">
+				<ul class="nav nav-tabs nav-stacked">
+					<li><a><i class="icon-road"></i> Travel</a></li>
+					<li><a><i class="icon-glass"></i> Food/Drink</a></li>
+					<li><a><i class="icon-heart"></i> Hobbies</a></li>
+					<li><a><i class="icon-film"></i> Entertainment</a></li>
+					<li class="disabled"><a><i class="icon-star"></i> Random</a></li>
+				</ul>
+			</div>
+			<div class="span7" id="main">Loading...</div>
+			<div class="span3" id="question-list-wrapper"></div>
+		</div>
+		<div class="well">
+			<div class="row">
+				<div class="span2">
+					<div class="fb-like" data-href="http://www.facebook.com/giftiqueme" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+					<a href="https://twitter.com/GiftiqueMe" class="twitter-follow-button" data-show-count="false">Follow @GiftiqueMe</a>
+				</div>
+				<div class="span3">
+					<p><small>Created as part of the NUVention: Web program at Northwestern University</small></p>
+				</div>
+			</div>
+		</div>
 	</div>
+	<script data-main="js/main.built" src="js/libs/require.min.js"></script>
+	<!-- Third Party Plugins -->
+
+	<!--Facebook-->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=128520183979985";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!--Twitter-->
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 </html>
