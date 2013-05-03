@@ -1,6 +1,10 @@
-body{
-	background: url('../img/flowers_brooklyn_blur.jpg') no-repeat; /*flowers_brooklyn_blur*/
+/*body{
+	background: url('../img/flowers_brooklyn_blur.jpg') no-repeat;
 	background-size: 1800px;
+}*/
+
+body{
+	background: url('../img/grey_wash_wall.png');
 }
 
 .container{
@@ -13,9 +17,15 @@ body{
              box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
 }
 
-.row{
-	margin-left: -10px;
-	margin-right: -10px;
+.loading{
+	background: url('../img/loading.gif');
+	width: 220px;
+	height: 19px;
+	margin: 80px auto;
+}
+
+.navbar{
+	margin-bottom: 10px;
 }
 
 .list{
@@ -26,13 +36,26 @@ body{
 	min-height: 400px;
 }
 
-.hero-unit{
-	margin-top: 20px;
-	background-color: rgba(255,255,255,.9);
+.sidebar{
+	padding: 5px 0;
 }
 
-.well{
+.nav-list{
+	padding: 0 10px;
+}
+
+.nav-list > li > a{
+	margin-left: -10px;
+	margin-right: -10px;
+	padding-left: 10px;
+}
+
+.footer{
 	margin-bottom: 0;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	font-size: 12px;
+	line-height: 16px;
 }
 
 #map{
@@ -52,3 +75,21 @@ body{
 	margin-left: -13%;
 	float: left;
 }
+
+
+/* failed attempt to fix up the facebook widget. better off as it is.
+.fb_edge_comment_widget {
+    top: -250px!important;
+    left: 0!important;
+    height: 249px;
+    background: url('../img/arrow-down.gif') 0 100% no-repeat;
+}
+.fb_edge_comment_widget > span {
+    height: 244px !important;
+    overflow: hidden;
+    border-top: 1px solid #000;
+}
+.fb_edge_comment_widget > span > iframe {
+    margin-top: -8px;
+    margin-bottom: -1px;
+} */
