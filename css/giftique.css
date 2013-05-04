@@ -8,6 +8,7 @@ body{
 }
 
 .container{
+	margin-top: 100px;
 	background-color: white;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -18,22 +19,27 @@ body{
 }
 
 .loading{
-	background: url('../img/loading.gif');
+	background: url('../img/loading-grey.gif');
 	width: 220px;
 	height: 19px;
-	margin: 80px auto;
+	margin: 10px auto;
+}
+
+#question-list{
+	list-style: none;
+}
+
+#question-list > li{
+	height: 22px;
+}
+
+.btn-link{
+	height: 20px;
+	padding: 0;
 }
 
 .navbar{
 	margin-bottom: 10px;
-}
-
-.list{
-	min-height: 50px;
-}
-
-#main{
-	min-height: 400px;
 }
 
 .sidebar{
