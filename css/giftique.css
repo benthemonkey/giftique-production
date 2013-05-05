@@ -8,7 +8,7 @@ body{
 }
 
 .container{
-	margin-top: 100px;
+	margin-top: 10px;
 	background-color: white;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -27,10 +27,45 @@ body{
 
 #question-list{
 	list-style: none;
+	margin-left: 0;
+	margin-right: 0;
 }
 
 #question-list > li{
 	height: 22px;
+}
+
+.intro{
+	width: 300px;
+	height: 286px;
+	border: 1px solid grey;
+	margin: 10px auto;
+	background: url('../img/meet-robbie.png') no-repeat center center;
+	background-size: 100%;
+}
+
+.red{
+	color: red;
+}
+
+.modal{
+	width: 620px;
+	margin-left: -300px;
+}
+
+.modal-body{
+	overflow-y: hidden;
+	width: 590px;
+}
+
+.modal-header{
+	border-bottom: none;
+}
+
+.play-button{
+	position: relative;
+	top: 30%;
+	cursor: pointer;
 }
 
 .btn-link{
@@ -42,18 +77,15 @@ body{
 	margin-bottom: 10px;
 }
 
-.sidebar{
-	padding: 5px 0;
-}
-
 .nav-list{
-	padding: 0 10px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .nav-list > li > a{
-	margin-left: -10px;
+	margin-left: 0;
 	margin-right: -10px;
-	padding-left: 10px;
+	padding: 0 5px;
 }
 
 .footer{
@@ -74,12 +106,6 @@ body{
 
 .blank{
 	height: 14px;
-}
-
-.module-nav{
-	width: 40px;
-	margin-left: -13%;
-	float: left;
 }
 
 
