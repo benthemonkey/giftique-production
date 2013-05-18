@@ -4,7 +4,7 @@ body{
 	background: url('http://commondatastorage.googleapis.com/giftiqueme/grey_wash_wall.png');
 }
 
-.container{
+.page{
 	max-width: 800px;
 	margin: 20px auto;
 	background-color: white;
@@ -18,6 +18,14 @@ body{
 
 .pointer{
 	cursor: pointer;
+}
+
+#content{
+	margin: 0 20px 20px;
+}
+
+.navbar .brand{
+	padding: 5px 20px;
 }
 
 /* Sidebar */
@@ -55,6 +63,11 @@ span.label{
   -webkit-border-top-left-radius: 4px;
      -moz-border-top-left-radius: 4px;
           border-top-left-radius: 4px;
+}
+
+.question > h3{
+	margin-top: 40px;
+	margin-bottom: 40px;
 }
 
 .question-form{
@@ -96,14 +109,15 @@ input.line:focus {
 }
 
 .answer-list > li{
-	height: 22px;
+	height: 24px;
 }
 
 .intro{
-	width: 300px;
-	height: 286px;
+	/*width: 300px;
+	height: 286px;*/
 	border: 1px solid grey;
 	margin: 10px auto;
+	padding: 23% 0;
 	background: url('http://commondatastorage.googleapis.com/giftiqueme/meet-robbie.png') no-repeat center center;
 	background-size: 100%;
 }
@@ -118,6 +132,15 @@ input.line:focus {
 	cursor: pointer;
 	opacity:0.9;
 	filter: alpha(opacity=90);
+}
+
+.carousel{
+	width: 450px;
+}
+
+.item > img{
+	width: 450px;
+	height: 300px;
 }
 
 .btn-link{
