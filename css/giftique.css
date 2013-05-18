@@ -1,7 +1,7 @@
 /* Pagewide styles */
 
 body{
-	background: url('../img/grey_wash_wall.png');
+	background: url('http://commondatastorage.googleapis.com/giftiqueme/grey_wash_wall.png');
 }
 
 .container{
@@ -104,7 +104,7 @@ input.line:focus {
 	height: 286px;
 	border: 1px solid grey;
 	margin: 10px auto;
-	background: url('../img/meet-robbie.png') no-repeat center center;
+	background: url('http://commondatastorage.googleapis.com/giftiqueme/meet-robbie.png') no-repeat center center;
 	background-size: 100%;
 }
 
