@@ -20,6 +20,15 @@ body{
 	cursor: pointer;
 }
 
+.exclaim-container{
+	display: inline;
+	position: absolute;
+}
+
+.exclaim{
+	display: none;
+}
+
 #content{
 	margin: 0 20px 20px;
 }
