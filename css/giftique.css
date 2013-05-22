@@ -118,7 +118,7 @@ input.line:focus {
 }
 
 .products{
-	max-height: 300px;
+	/*max-height: 300px;*/
 	overflow-y: scroll;
 	margin-left: 0;
 	margin-bottom: 0;
