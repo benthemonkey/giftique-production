@@ -37,6 +37,13 @@ body{
 	padding: 5px 20px;
 }
 
+.bar-label{
+	position: absolute;
+	left: 50%;
+	margin-left: -90px;
+	color: #000;
+}
+
 /* Sidebar */
 
 .nav-list{
@@ -106,9 +113,23 @@ input.line:focus {
 	border-bottom-left-radius: 4px;
 }
 
+.well.product-well{
+	padding: 0;
+}
+
 .products{
-	max-height: 250px;
+	max-height: 300px;
 	overflow-y: scroll;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+.product{
+	width: 160px;
+	list-style: none;
+	float: left;
+	margin-left: 15px;
+	margin-top: 10px;
 }
 
 .answer-list{
