@@ -37,6 +37,13 @@ body{
 	padding: 5px 20px;
 }
 
+.bar-label{
+	position: absolute;
+	left: 50%;
+	margin-left: -90px;
+	color: #000;
+}
+
 /* Sidebar */
 
 .nav-list{
