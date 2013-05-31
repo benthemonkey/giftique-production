@@ -34,20 +34,19 @@
 
 	<link rel="shortcut icon" href="favicon.ico">
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+	<!--<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />-->
+	<link rel="stylesheet" href="css/bootstrap-custom.min.css" />
 	<link rel="stylesheet" href="css/giftique.css" />
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<title>Giftique.me</title>
 </head>
 <body>
-	<div class="navbar navbar-static-top" id="navbar">
-		<div class="navbar-inner">
-			<a class="brand" href="#"><img src="http://commondatastorage.googleapis.com/giftiqueme/giftiquemelogo-small.png" style="height: 30px;"/></a>
-			<ul class="nav pull-right" id="status">
-				<li><a class="pointer">Log In / Sign Up <img src="http://commondatastorage.googleapis.com/giftiqueme/facebook.png" style="height: 20px; width: 20px;" /></a></li>
-			</ul>
-		</div><!-- /navbar-inner -->
+	<div class="header">
+		<div class="sub-header">
+			<a class="brand" href="#"></a>
+		</div>
+		<div class="sub-header" id="status"></div>
 	</div>
 	<div id="alert-container" class="alert-container span6 offset3"></div>
 	<div class="container-fluid">
@@ -60,7 +59,19 @@
 			</div>
 		</div>
 	</div>
-	<div class="navbar navbar-fixed-bottom">
+	<div class="footer-gradient"></div>
+	<div class="footer">
+		<div class="sub-footer">
+			<a href="http://www.facebook.com/giftiqueme" target="_blank"><img width="40px" src="img/facebook-icon.png" /></a>
+			<a href="http://twitter.com/GiftiqueMe" target="_blank"><img width="40px" src="img/twitter-icon.png" /></a>
+		</div>
+		<div class="sub-footer footer-middle">
+			<a href="#about-us" data-toggle="modal" data-role="button"><small>About Us</small></a>
+			<a href="#privacy" data-toggle="modal" data-role="button"><small>Privacy Policy</small></a>
+			<a href="#tos" data-toggle="modal" data-role="button"><small>Terms of Service</small></a>
+		</div>
+	</div>
+	<!--<div class="navbar navbar-fixed-bottom">
 		<div class="navbar-inner">
 			<ul class="nav footer-nav">
 				<li><a href="#privacy" data-toggle="modal" data-role="button"><small>Privacy Policy</small></a></li>
@@ -71,7 +82,7 @@
 				<li><a href="http://twitter.com/GiftiqueMe" target="_blank"><small>Twitter</small></a></li>
 			</ul>
 		</div>
-	</div>
+	</div>-->
 	<div id="meet-robbie" class="modal hide fade" role="dialog" >
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
