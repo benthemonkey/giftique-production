@@ -4,14 +4,18 @@ body{
 	font-family: 'Montserrat', sans-serif;
 }
 
+a:hover{
+	text-decoration: none;
+}
+
 .container-fluid{
 	margin-top: 10px;
-	margin-bottom: 55px;
+	margin-bottom: 35px;
 	padding-left: 30px;
 	padding-right: 30px;
 }
 
-.page{
+/*.page{
 	background-color: white;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -19,7 +23,7 @@ body{
      -webkit-box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
         -moz-box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
              box-shadow: 7px 7px 10px rgba(50, 50, 50, 1);
-}
+}*/
 
 .landing{
 	position: absolute;
@@ -27,9 +31,15 @@ body{
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: url('../img/landing-placeholder.jpg') no-repeat;
+	background: url('http://commondatastorage.googleapis.com/giftiqueme/GiftiqueFront2.jpg') no-repeat center;
 	background-size: cover;
 	z-index: 0;
+}
+
+.tagline{
+	color: white;
+	font-size: 26px;
+	text-shadow: 1px 1px 10px black;
 }
 
 .header{
@@ -50,32 +60,34 @@ body{
 	display: block;
 	height: 50px;
 	width: 150px;
-	background-image: url('../img/Giftique-Logo-White.png');
+	background-image: url('../img/giftiqueme-logo-small2.png');
 	background-size: 100%;
 	margin: 0 auto;
 }
 
 .brand:hover{
-	background-image: url('../img/Giftique-Logo.png');
+	background-position: 0 -50px;
 }
 
 .dropdown{
 	text-align: center;
-	padding-top: 15px;
+	padding-top: 18px;
 }
 
 .dropdown-toggle{
-	color: white;
 	font-size: 16px;
 }
 
-.dropdown-toggle:hover, .dropdown-toggle:focus{
-	color: #00adef;
+.dropdown-toggle:focus{
 	text-decoration: none;
 }
 
+.dropdown-toggle:focus > i, .dropdown-toggle:hover > i{
+	background-image: url('../img/glyphicons-halflings-white.png');
+}
+
 .dropdown-menu{
-	top: 122%;
+	top: 110%;
 	left: 50%;
 	border: none;
 	box-shadow: none;
@@ -88,48 +100,19 @@ body{
 	width: 100px;
 }
 
-.dropdown-menu > li > a{
-	color: white;
-}
-
-.status-dropdown-menu{
-	/*display: none;*/
-	position: absolute;
-	background-color: #3a3a3c;
-	top: 47px;
-	right: 15%;
-	padding: 5px;
-	border-bottom-right-radius: 4px;
-	border-bottom-left-radius: 4px;
-}
-
-.status-dropdown-menu > a{
-	display: inline-block;
-	margin: 10px 20px;
-	font-size: 16px;
-	color: white;
-}
-
-.pointer{
-	cursor: pointer;
-}
-
 .nav-tabs{
 	margin-bottom: 0;
 }
 
 .nav-tabs > li > a{
 	background-color: #F0F0F0;
-	padding: 5px;
-	font-size: 12px;
-	line-height: 14px;
-	margin-top: 9px;
+	padding: 6px;
+	margin-top: 11px;
 }
 
 .nav-tabs > li > .all{
 	font-weight: bold;
-	font-size: 14px;
-	padding: 10px;
+	padding: 12px;
 	margin-top: 0;
 }
 
@@ -139,25 +122,6 @@ body{
 	left: 50%;
 	top: 1px;
 	z-index: 999999;
-}
-
-.navbar-fixed-bottom{
-	height: 30px;
-}
-
-.progress{
-	position: relative;
-	margin-bottom: 10px;
-}
-
-.bar-label{
-	position: absolute;
-	width: 100%;
-	text-align: center;
-}
-
-.footer-nav > li{
-	line-height: 10px;
 }
 
 /* Questions */
@@ -201,12 +165,8 @@ body{
 	border-bottom-right-radius: 4px;
 	border-bottom-left-radius: 4px;
 	border: none;
-	background-color: black;
-	background-color: rgba(0,0,0,0.4);
-}
-
-.well.product-well{
-	padding: 0;
+	/*background-color: black;
+	background-color: rgba(0,0,0,0.4);*/
 }
 
 .form-inline{
@@ -218,31 +178,31 @@ body{
 }
 
 .products{
-	position: relative;
+	list-style: none;
 	overflow-y: scroll;
-	margin-left: 0;
-	margin-bottom: 0;
-	min-height: 475px;
+	margin: 0 auto;
+	min-height: 530px;
+	width: 550px;
 }
 
-.product{
-	list-style: none;
+.products > li{
 	float: left;
-	margin: 5px 2%;
+	margin: 5px; /*2%*/
+	width: 170px;
+	height: 135px;
 }
 
 .thumbnail{
 	padding: 0;
-	width: 170px;
-	height: 135px;
 }
 
 .thumbnail-footer{
 	position: absolute;
 	bottom: 1px;
-	width: 170px;
-	background-color: white;
-	background-color: rgba(255,255,255,.8);
+	left: 1px;
+	right: 1px;
+	background-color: black;
+	background-color: rgba(0,0,0,.5);
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
@@ -347,4 +307,23 @@ body{
 	background: -ms-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+}
+
+.social-icon{
+	display: inline-block;
+	background-image: url('../img/social-icons.png');
+	width: 40px;
+	height: 40px;
+}
+
+.social-icon.facebook-icon{
+	background-position: -40px 0;
+}
+
+.social-icon.facebook-icon:hover{
+	background-position: -40px -40px;
+}
+
+.social-icon.twitter-icon:hover{
+	background-position: 0 -40px;
 }
