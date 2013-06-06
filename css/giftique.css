@@ -21,7 +21,7 @@ a:hover{
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: url('http://commondatastorage.googleapis.com/giftiqueme/GiftiqueFront2.jpg') no-repeat center;
+	background: url('http://commondatastorage.googleapis.com/giftiqueme%2FGiftiqueFront2.jpg') no-repeat center;
 	background-size: cover;
 	z-index: 0;
 }
@@ -51,7 +51,7 @@ a:hover{
 	display: block;
 	height: 50px;
 	width: 150px;
-	background-image: url('../img/giftiqueme-logo-small2.png');
+	background-image: url('http://commondatastorage.googleapis.com/giftiqueme%2Fgiftiqueme-logo-small.png');
 	background-size: 100%;
 	margin: 0 auto;
 }
@@ -113,6 +113,10 @@ a:hover{
 	right: 5%;
 	top: 35px;
 	z-index: 999999;
+}
+
+.modal a:hover{
+	color: #96989b;
 }
 
 /* Questions */
@@ -302,7 +306,7 @@ a:hover{
 
 .social-icon{
 	display: inline-block;
-	background-image: url('../img/social-icons.png');
+	background-image: url('http://commondatastorage.googleapis.com/giftiqueme%2Fsocial-icons.png');
 	width: 40px;
 	height: 40px;
 }
